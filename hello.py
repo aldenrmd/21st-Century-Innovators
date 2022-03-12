@@ -1,1 +1,1 @@
-
+alden = input(float)
