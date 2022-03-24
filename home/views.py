@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import admin_creds
 import datetime
 # Create your views here.
 TEMPLATE_DIRS = (
