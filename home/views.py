@@ -7,19 +7,12 @@ TEMPLATE_DIRS = (
 )
 def index(request):
     today = datetime.datetime.now().date()
-    return render(request, "index.html", {"today": today})
+    return render(request, "home/index.html", {"today": today})
 def track(request):
-    today = datetime.datetime.now().date()
-    return render(request, "track.html", {"today": today})
+    return render(request, "home/track.html")
 def pricing(request):
-    today = datetime.datetime.now().date()
-    return render(request, "pricing.html", {"today": today})
+    return render(request, "home/pricing.html")
 def about(request):
-    today = datetime.datetime.now().date()
-    return render(request, "about.html", {"today": today})
+    return render(request, "home/about.html")
 def contactus(request):
-    today = datetime.datetime.now().date()
-    return render(request, "contactus.html", {"today": today})
-def admin(request):
-    today = datetime.datetime.now().date()
-    return render(request, "admin.html", {"today": today})
+    return render(request, "home/contactus.html")

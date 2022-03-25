@@ -28,52 +28,42 @@
                   <li class="nav-item"> <a class="nav-link" href="{% url 'pricing'%}">Pricing</a> </li>
                   <li class="nav-item"> <a class="nav-link" href="{% url 'about'%}">About</a> </li>
                   <li class="nav-item"> <a class="nav-link" href="{% url 'contactus'%}">Contact Us</a> </li>
-                </ul> <a class="btn navbar-btn ml-md-2 btn-light text-dark" href ="{% url 'admin'%}" >Admin</a>
+                </ul> <a class="btn navbar-btn ml-md-2 btn-light text-dark" href ="{% url 'login'%}" >Admin</a>
               </div>
             </div>
           </nav>
-          <div class="py-5 text-center text-white" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url('/static/img/daqs 3.jpg'); background-position: center center, center center;	background-size: cover, cover; background-repeat: repeat, repeat;" >
+          <div class="py-5 text-center text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/static/img/daqs 3.jpg'); background-position: center center, center center; background-size: cover, cover; background-repeat: repeat, repeat;">
             <div class="container">
               <div class="row">
-                <div class="col-md-12">
-                  <h1 class="display-3">Contact Us</h1>
+                <div class="mx-auto col-md-12">
+                  <h1 class="mb-3">Our team</h1>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6 p-4"> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="{% static 'img/daqs 5.png' %}" alt="Card image cap" width="200">
+                  <h4>&nbsp;Ethel A. Galorport</h4>
+                  <p class="mb-0">Proprietor</p>
+                </div>
+                <div class="col-lg-4 col-md-6 p-4"> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="{% static 'img/daqs 5.png' %}" alt="Card image cap" width="200">
+                  <h4>Earlray A. Galorport</h4>
+                  <p class="mb-0">Operations Manager</p>
+                </div>
+                <div class="col-lg-4 p-4"> <img class="img-fluid d-block mb-3 mx-auto rounded-circle" src="{% static 'img/daqs 5.png' %}" width="200">
+                  <h4>&nbsp;Nestor C. Daquil</h4>
+                  <p class="mb-0">General Manager</p>
                 </div>
               </div>
             </div>
-            <div class="container">
+          </div>
+          <div class="py-5">
+            <div class="container" >
               <div class="row">
-                <div class="mx-auto p-4 col-md-6">
-                  <h1>Ireland</h1>
-                  <div class="ml-auto col-lg-12">
-                    <div class="card my-2">
-                      <div class="card-body p-4">
-                        <div class="row">
-                          <div class="d-flex flex-column col-md-12 text-dark">
-                            <p class="mb-1">224 Parnell Street, Dublin</p>
-                            <h4 class="">DAQS Office: 087 9035 670&nbsp;&nbsp;<br>Ms. Ethel:&nbsp; &nbsp; &nbsp;087 7970 398&nbsp;</h4>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="mb-4">Please note that collection of parcels is done every day in Dublin, while collection for areas outside the city like Sligo and Cork are scheduled depending on the availability of employees and demand of consumers.</p>
-                </div>
-                <div class="mx-auto p-4 col-md-6">
-                  <h1>Philippines</h1>
-                  <div class="ml-auto col-lg-12">
-                    <div class="card my-2">
-                      <div class="card-body p-4">
-                        <div class="row">
-                          <div class="d-flex flex-column col-md-12 text-dark">
-                            <p class="mb-1">Cainta, Pooc, Talisay City</p>
-                            <h4 class="">Mr. Chuck: 0956 511 5130&nbsp;<br>Ms. Elma:&nbsp; &nbsp;0916 506 2419&nbsp;</h4>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="mb-4">ETA varies from 4-6 months.</p>
+                <div class="p-3 col-md-8">
+                  <div class="blockquote mb-0">
+                    <p class="text-justify" contenteditable="true">Daqs Freight Forwarder, or Mercury Express as it is known in Ireland, is a shipping and logistics service provider based in Dublin, Ireland. It was founded by Ethel Galorport in 1998 and began as a local courier service. It was initially established to meet the needs of Irish locals. However, in the early 2000s, the Filipino community in Ireland began to grow. Realizing the need for a bridge to the homeland, Daqs Freight Forwarder shifted their focus to meet the demands of the Filipino community in Ireland. More than twenty years later, the company continues to serve the Filipino people.</p>
                   </div>
                 </div>
+                <div class="mx-auto p-1 col-md-4"> <img class="img-fluid d-block img-thumbnail" src="{% static 'img/daqs1.jpg' %}"><img class="img-fluid d-block img-thumbnail" src="{% static 'img/daqs 4.png' %}"> </div>
               </div>
             </div>
           </div>

@@ -1,0 +1,134 @@
+{% load static %}
+
+<link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'booking/css/theme.css' %}"
+/>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="theme.css" type="text/css">
+    </head>
+      
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <div class="container"> <a class="navbar-brand" href="{% url 'index'%}">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <b> DAQS Freight Forwarder</b>
+              </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar16">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbar16">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"> <a class="nav-link" href="{% url 'track'%}">Track</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{% url 'pricing'%}">Pricing</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{% url 'about'%}">About</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{% url 'contactus'%}">Contact Us</a> </li>
+                </ul> <a class="btn navbar-btn ml-md-2 btn-light text-dark" href ="{% url 'login'%}" >Admin</a>
+              </div>
+            </div>
+          </nav>
+          <div class="pt-3 pb-0">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 p-2">
+                  <h1>Book a package</h1>
+                  <p>Please enter customer details.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 p-2">
+                  <h3 class="mb-3">Sender Details</h3>
+                  <form>
+                    <div class="form-row">
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form34" placeholder="First Name" name="sender_first_name" required="required"> </div>
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form35" placeholder="Last Name" name="sender_last_name" required="required"> </div>
+                    </div>
+                    <div class="form-group"> <input type="text" class="form-control" id="form36" name="sender_address" placeholder="Address" required="required"> </div>
+                    <div class="form-row">
+                      <div class="col-7">
+                        <input type="text" class="form-control mb-2" placeholder="City" id="form37" name="sender_city" required="required">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="State" id="form38" name="sender_state" required="required">
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control" placeholder="Zip" id="form39" name="sender_zip" required="required">
+                      </div>
+                    </div>
+                    <div class="form-group"> <input type="email" class="form-control" id="form40" placeholder="Email (Optional)" name="sender_email"> </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form41" placeholder="Contact Number" name="sender_number" required="required"> </div>
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form42" placeholder="Country" name="sender_country" required="required"> </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-6 p-2">
+                  <h3 class="mb-3">Receiver Details</h3>
+                  <form>
+                    <div class="form-row">
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form43" placeholder="First Name" name="receiver_first_name" required="required"> </div>
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form44" placeholder="Last Name" name="receiver_last_name" required="required"> </div>
+                    </div>
+                    <div class="form-group"> <input type="text" class="form-control" id="form45" name="receiver_address" placeholder="Address" required="required"> </div>
+                    <div class="form-row">
+                      <div class="col-7">
+                        <input type="text" class="form-control mb-2" placeholder="City" id="form46" name="receiver_city" required="required">
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="State" id="form47" name="receiver_state" required="required">
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control" placeholder="Zip" id="form48" name="receiver_zip" required="required">
+                      </div>
+                    </div>
+                    <div class="form-group"> <input type="email" class="form-control" id="form49" placeholder="Email (Optional)" name="receiver_email"> </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form50" placeholder="Contact Number" name="receiver_number" required="required"> </div>
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form51" placeholder="Country" name="receiver_country" required="required"> </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center py-0 pb-2">
+            <div class="container">
+              <div class="row">
+                <div class="mx-auto col-md-12">
+                  <h1 class="mb-3">Check if details are correct!</h1> <a class="btn btn-outline-primary" href="#">Proceed</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="py-3" >
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-4 col-6 p-3")> <img src="{% static 'img/daqs 4.png' %}" style='height: 100%; width: 100%; object-fit: contain'; vertical-align= top;/> </div>
+                <div class="col-lg-4 col-6 p-3">
+                  <p>Cainta, Pooc<br>Talisay City, Philippines<br>0916 506 2419 or 0956 511 5130</p>
+                  <p>224 Parnell Street<br>Dublin, Ireland<br>087 9035 670 or 087 797 0398</p>
+                  <p class="mb-0"> info@daqstransport.com </p>
+                </div>
+                <div class="col-md-4 p-3">
+                  <h5> <b>Daqs Freight Forwarder</b></h5>
+                  <p class="mb-0"> Daqs Freight Forwarder is a logistics firm that specializes in shipping balikbayan boxes from Ireland to the Philippines.&nbsp;Since 2001, Daqs Freight Forwarder have helped overseas Filipino workers (OFWs) in Ireland send goods to their loved ones in the Philippines.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <p class="mb-0 mt-2">© 2021-2022 Daqs Freight Forwarder. All rights reserved</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    </body>
+</html>
