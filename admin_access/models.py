@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class admin_creds(models.Model):
+class credentials(models.Model):
   username = models.CharField(max_length=50)
   password = models.CharField(max_length=50)
   fullname = models.CharField(max_length=100)
