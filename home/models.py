@@ -10,4 +10,3 @@ class admin_creds(models.Model):
 
   def __str__(self) -> str:
     return 'Full name: %s, Position: %s, Email: %s' % self.fullname, self.position, self.email
-# Create your models here.
