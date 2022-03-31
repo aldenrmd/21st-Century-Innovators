@@ -7,7 +7,7 @@ class Parcel(models.Model):
     status = models.IntegerField(default=0)
 
     def __str__(self) -> str:
-        return 'code: %s, status: %d' % self.track_code, self.status
+        return 'code: %s, status: %d' % (self.track_code, self.status)
 
 
 class Receiver(models.Model):
@@ -21,7 +21,7 @@ class Receiver(models.Model):
     city_id = models.CharField(max_length=100)
 
     def __str__(self) -> str:
-        return 'name %s %s, code: %s' % self.first_name, self.last_name, self.parcel.track_code
+        return 'name %s %s, code: %s' % (self.first_name, self.last_name, self.parcel.track_code)
 
 
 class Sender(models.Model):
@@ -35,7 +35,7 @@ class Sender(models.Model):
     city_id= models.CharField(max_length=100)
 
     def __str__(self) -> str:
-        return 'name %s %s, code: %s' % self.first_name, self.last_name, self.parcel.track_code
+        return 'name %s %s, code: %s' % (self.first_name, self.last_name, self.parcel.track_code)
 
 
 class Province(models.Model):
