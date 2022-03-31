@@ -17,10 +17,10 @@ def login(request):
         d = request.POST 
         for key,value in d.items():
             if key == "username":
-                em = value
+                user = value
             if key == "password":
                 pwd = value
-        c = "select * from admin_access_credential where username='{}' and password='{}'".format(em,pwd)
+        c = "select * from admin_access_credential where username='{}' and password='{}'".format(user,pwd)
         cursor.execute(c)
         t = tuple(cursor.fetchall())
         print(t)
