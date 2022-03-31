@@ -16,14 +16,15 @@ def login(request):
         cursor = m.cursor()
         d = request.POST 
         for key,value in d.items():
-            if key=="username":
-                em=value
-            if key=="password":
-                pwd=value
-        c = "select * from admin_access_credentials where email='{}' and password='{}'".format(em,pwd)
+            if key == "username":
+                em = value
+            if key == "password":
+                pwd = value
+        c = "select * from admin_access_credential where username='{}' and password='{}'".format(em,pwd)
         cursor.execute(c)
-        t=tuple(cursor.fetchall())
-        if t==():
+        t = tuple(cursor.fetchall())
+        print(t)
+        if t == ():
             return render(request,"admin_access/admin.html")
         else: 
             return render(request, "admin_access/dashboard.html")

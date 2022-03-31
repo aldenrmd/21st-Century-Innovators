@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class credentials(models.Model):
+class credential(models.Model):
   username = models.CharField(max_length=50)
   password = models.CharField(max_length=50)
   fullname = models.CharField(max_length=100)
@@ -9,4 +9,4 @@ class credentials(models.Model):
   email = models.CharField(max_length=100)
 
   def __str__(self) -> str:
-    return 'Full name: %s, Position: %s, Email: %s' % self.fullname, self.position, self.email
+    return 'Full name: %s, Position: %s, Email: %s' % (self.fullname, self.position, self.email)
