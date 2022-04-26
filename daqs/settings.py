@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'home',
     'db',
     'booking',
-    'admin_access'
+    'admin_access',
+    'track'
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': 'thegoldenchild',
+        'PASSWORD': 'bundat castano2001',
     }
 }
 

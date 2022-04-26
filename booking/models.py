@@ -27,3 +27,4 @@ class Receiver(models.Model):
     receiver_country = models.CharField(max_length=100)
     def __str__(self) -> str:
         return '%s %s' % (self.receiver_first_name, self.receiver_last_name)
+

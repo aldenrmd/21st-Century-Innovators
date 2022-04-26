@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
 from .models import Sender, Receiver
+from track.models import Tracker
 # Create your views here.
 TEMPLATE_DIRS = (
     'os.path.join(BASE_DIR, "templates"),'
@@ -35,4 +36,14 @@ def booking(request):
         return render(request, "admin_access/dashboard.html")
     return render(request, "booking/booking.html")
 
-
+def update(request):
+    query=None
+    post=[]
+    if request.method == 'GET':
+        query = request.GET.get('search')
+        post = Tracker.objects.filter(trackingcode=query)
+        return render(request,  'booking/update.html', {'query':query,'post':post})
+    else:
+        return render(request, 'booking/update.html',{})
+def search(request):
+    return render(request, "booking/search.html")
