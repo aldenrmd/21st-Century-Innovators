@@ -18,7 +18,7 @@ class Province(models.Model):
 
 
 class City(models.Model):
-    province_id = models.CharField(primary_key=True, max_length=5)
+    city_id = models.CharField(primary_key=True, max_length=5)
     name = models.CharField(max_length=50)
 
     def __str__(self) -> str:
