@@ -1,0 +1,4 @@
+
+*.pyc
+daqs/settings.py
+admin_access/views.py
