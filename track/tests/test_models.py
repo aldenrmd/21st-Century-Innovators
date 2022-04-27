@@ -1,3 +1,3 @@
 from django.test import TestCase
 
-# No models to be tested.
+# Models aren't tested in this sprint
