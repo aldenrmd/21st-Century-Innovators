@@ -8,7 +8,6 @@ class TestViews(TestCase):
   def setUp(self):
     self.client = Client()
     self.index_url = reverse('index')
-    self.track_url = reverse('track') 
     self.pricing_url = reverse('pricing')
     self.about_url = reverse('about')
     self.contactus_url = reverse('contactus')
@@ -18,11 +17,6 @@ class TestViews(TestCase):
     response = self.client.get(self.index_url)
     self.assertEquals(response.status_code, 200)
     self.assertTemplateUsed(response, 'home/index.html')
-
-  def test_track_GET(self):
-    response = self.client.get(self.track_url)
-    self.assertEquals(response.status_code, 200)
-    self.assertTemplateUsed(response, 'home/track.html')
     #if we need to test out functions in views.py go to: https://www.youtube.com/watch?v=hA_VxnxCHbo&list=PLbpAWbHbi5rMF2j5n6imm0enrSD9eQUaM&index=3 at 7:10
 
   def test_pricing_GET(self):
