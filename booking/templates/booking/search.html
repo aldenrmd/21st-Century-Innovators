@@ -37,9 +37,10 @@
               <div class="row">
                 <div class="bg-white mx-auto col-md-8 col-10 p-4">
                   <h4 class="display-4">Search Parcel</h4>
+                  <p class="mb-2"> Enter tracking code or Last Name of Sender/Receiver or City of Receiver.</p>
                   <form action="{% url 'update' %}" class="form-inline justify-content-center" method="get">
                     <div class="input-group">
-                      <input name= "search" type="text" class="form-control form-control-lg justify-content-center align-items-center" id="inlineFormInputGroup" placeholder="Tracking Code" required="required">
+                      <input name= "search" type="text" class="form-control form-control-lg justify-content-center align-items-center" id="inlineFormInputGroup" required="required">
                       <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
                     </div>
                   </form>
