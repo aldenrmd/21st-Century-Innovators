@@ -12,7 +12,7 @@ TEMPLATE_DIRS = (
 def login(request):
     global em, pwd
     if request.method == 'POST':  
-        m=sql.connect(host="localhost",user="root",passwd="thegoldenchild",database="daqsDB")
+        m=sql.connect(host="localhost",user="root",passwd="13elf@st1sL1fe",database="daqsDB")
         cursor = m.cursor()
         d = request.POST 
         for key,value in d.items():
