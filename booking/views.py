@@ -38,12 +38,22 @@ def booking(request):
 
 def update(request):
     query=None
-    post=[]
+    track=[]
+    sender=[]
+    receiver=[]
     if request.method == 'GET':
         query = request.GET.get('search')
-        post = Tracker.objects.filter(trackingcode=query)
-        return render(request,  'booking/update.html', {'query':query,'post':post})
+        if Tracker.objects.filter(trackingcode=query):
+            track=Tracker.objects.filter(trackingcode=query)
+            if Sender.objects.filter(trackingcode=query):
+                sender= Sender.objects.filter(trackingcode=query)
+            if Receiver.objects.filter(trackingcode=query):
+                receiver= Receiver.objects.filter(trackingcode=query)
+        return render(request,  'booking/update.html', {'query':query,'track':track, 'sender':sender, 'receiver':receiver})
+    if request.method == '#':
+        #something
     else:
         return render(request, 'booking/update.html',{})
+
 def search(request):
     return render(request, "booking/search.html")

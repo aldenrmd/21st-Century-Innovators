@@ -42,8 +42,7 @@
               <div class="row">
                 <div class="bg-white mx-auto col-md-8 col-10 py-2">
                   <div class="table-responsive">
-                {% if query %}
-                  {% for data in post %}
+                {% if track %}
                     <table class="table table-bordered ">
                       <thead class="thead-dark">
                         <tr>
@@ -51,24 +50,37 @@
                           <th contenteditable="true" class="table-primary">Status</th>
                           <th contenteditable="true" class="table-primary">Sender</th>
                           <th contenteditable="true" class="table-primary">Receiver</th>
-                          <th contenteditable="true" class="table-primary">Destination (City)</th>
+                          <th contenteditable="true" class="table-primary">Destination</th>
                           <th contenteditable="true" class="table-primary">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
+                          {% for data in track %}
                           <td> {{ data.trackingcode }}</td>
                           <td> {{ data.status }}</td>
-                          <td> - </td>
-                          <td> - </td>
-                          <td> - </td>
-                          <td> <a class="btn btn-outline-primary mx-1" href="#">Update</a></td>
+                          {% endfor %}
+
+                          {% for send in sender %}
+                          <td>  {{ send.sender_last_name }}, {{ send.sender_first_name }}</td>
+                          {% endfor %}
+                          {% for rec in receiver %}
+                          <td> {{ rec.receiver_last_name }}, {{ rec.receiver_first_name }} </td>
+                          <td> {{ rec.receiver_city }} , {{ rec.receiver_state }} </td>
+                          {% endfor %}
+                          <td> 
+                            <form action="{% url 'update' %}" class="form-inline justify-content-center" method="UP">
+                            <div class="input-group">
+                              <input name= "search" type="text" class="form-control form-control-lg justify-content-center align-items-center" id="inlineFormInputGroup" required="required">
+                              <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
+                            </div>
+                            </form> 
+                          </td>
                         </tr>
                       </tbody>
                     </table>
-                    {% empty %}
+                    {% else %}
                       <p> '{{query}}' not in database.</p>     
-                  {% endfor %} 
                 {% endif %}
                   </div>
                 </div>
