@@ -25,7 +25,6 @@ def track(request):
 
 def track_code_generator():
     last_entry = Tracker.objects.last()
-    print(type(last_entry))
     if last_entry == None:
         return "DAQS00000001"
     tracking_code = last_entry.trackingcode
