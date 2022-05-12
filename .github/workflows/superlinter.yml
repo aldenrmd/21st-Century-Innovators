@@ -14,4 +14,6 @@ jobs:
         uses: docker://github/super-linter:v4
         env:
           DEFAULT_BRANCH: main
+          LINTER_RULES_PATH: .
+          VALIDATE_ALL_CODEBASE: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
