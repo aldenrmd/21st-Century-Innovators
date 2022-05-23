@@ -4719,8 +4719,10 @@ button.bg-dark:hover,
 button.bg-dark:focus {
   background-color: black !important; }
 
-.bg-white {
-  background-color: #fff !important; }
+  .bg-white {
+    background-color: #fff !important; 
+    opacity: 0.85;
+  }
 
 .bg-transparent {
   background-color: transparent !important; }
