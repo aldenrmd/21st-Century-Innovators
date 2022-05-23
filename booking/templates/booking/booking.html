@@ -12,7 +12,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="theme.css" type="text/css">
-    </head>
+        {% if messages %}
+          <ul class="messages">
+          {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><strong>{{message}}</strong></li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      </head>
       
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
@@ -34,6 +41,9 @@
           </nav>
           <div class="pt-3 pb-0">
             <div class="container">
+              <div class="row">
+                <div class="col-md-12"><a class="btn btn-primary" href="{% url 'dashboard'%}" >Return to Dashboard</a></div>
+              </div>
               <div class="row">
                 <div class="col-md-8 p-2">
                   <h1>Book a package</h1>

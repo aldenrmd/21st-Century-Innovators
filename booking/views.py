@@ -4,6 +4,8 @@ import datetime
 from .models import Sender, Receiver
 from track.models import Tracker
 from track.views import track_code_generator
+from django.contrib import messages
+
 
 
 # Create your views here.
@@ -36,14 +38,15 @@ def booking(request):
         receiver_country = request.POST['receiver_country']
         my1 = Receiver(receiver_first_name=receiver_first_name, receiver_last_name=receiver_last_name, receiver_address=receiver_address, receiver_city=receiver_city, receiver_state=receiver_state, receiver_zip=receiver_zip, receiver_email=receiver_email, receiver_number=receiver_number, receiver_country=receiver_country, trackingcode=track_code)
         my2 = Sender(sender_first_name=sender_first_name, sender_last_name=sender_last_name, sender_address=sender_address, sender_city=sender_city, sender_state=sender_state, sender_zip=sender_zip, sender_email=sender_email, sender_number=sender_number, sender_country=sender_country, trackingcode=track_code)
-        track_model = Tracker(trackingcode=track_code, status=0)
+        track_model = Tracker(trackingcode=track_code, status="Booked")
         my1.save()
         my2.save()
         track_model.save()
-        return render(request, "admin_access/dashboard.html")
+        messages.info(request, 'TRACKING CODE: %s ' % track_code)
+        return render(request, "booking/booking.html")
     return render(request, "booking/booking.html")
 
-def update(request):
+def display(request):
     query=None
     track=[]
     sender=[]
@@ -56,10 +59,35 @@ def update(request):
                 sender= Sender.objects.filter(trackingcode=query)
             if Receiver.objects.filter(trackingcode=query):
                 receiver= Receiver.objects.filter(trackingcode=query)
+        return render(request,  'booking/display.html', {'query':query,'track':track, 'sender':sender, 'receiver':receiver})
+    else:
+        return render(request, 'booking/display.html',{})
+
+
+def update(request):
+    query=None
+    track=[]
+    sender=[]
+    receiver=[]
+    statusqueue=["Booked","In warehouse (IRE)","Outbound to PH","In warehouse (PH)", "Outbound to receiver", "Received"]
+    if request.method == 'GET':
+        query = request.GET.get('search')
+        if Tracker.objects.filter(trackingcode=query):
+            status = Tracker.objects.get(trackingcode=query)
+            if status.status=="Booked":
+                status.status = statusqueue[1]
+            elif status.status!="Received":
+                for i in range(len(statusqueue)):
+                    if status.status == statusqueue[i]:
+                        status.status = statusqueue[i+1]
+                        break
+            status.save()
+            track=Tracker.objects.filter(trackingcode=query)
+            if Sender.objects.filter(trackingcode=query):
+                sender= Sender.objects.filter(trackingcode=query)
+            if Receiver.objects.filter(trackingcode=query):
+                receiver= Receiver.objects.filter(trackingcode=query)
         return render(request,  'booking/update.html', {'query':query,'track':track, 'sender':sender, 'receiver':receiver})
-    if request.method == '#':
-        pass
-        #something
     else:
         return render(request, 'booking/update.html',{})
 
