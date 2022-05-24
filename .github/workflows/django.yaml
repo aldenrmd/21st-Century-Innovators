@@ -10,19 +10,15 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          DB_DATABASE: daqsDB
-          DB_USER: root
-          DB_PASSWORD: thegoldenchild
-
     strategy:
       max-parallel: 4
       matrix:
         python-version: [3.9]
 
+    env:
+      DB_DATABASE: test_db
+      DB_USER: root
+      DB_PASSWORD: root
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
