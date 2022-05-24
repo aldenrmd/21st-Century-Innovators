@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'daqs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django',
-        'HOST': '127.0.0.1',
+        'NAME': 'daqsDB',
+        'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'thegoldenchild',
     }
 }
 
