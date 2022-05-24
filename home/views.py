@@ -8,8 +8,6 @@ TEMPLATE_DIRS = (
 def index(request):
     today = datetime.datetime.now().date()
     return render(request, "home/index.html", {"today": today})
-def track(request):
-    return render(request, "home/track.html")
 def pricing(request):
     return render(request, "home/pricing.html")
 def about(request):

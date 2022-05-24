@@ -1,3 +1,3 @@
 from django.test import TestCase
 
-# Create your tests here.
+# Models aren't tested in this sprint
