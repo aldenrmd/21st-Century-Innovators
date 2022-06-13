@@ -56,8 +56,8 @@
                       <tbody>
                         <tr>
                           {% for data in track %}
-                          <td> {{ data.trackingcode }}</td>
-                          <td> {{ data.status }}</td>
+                          <td> {{ data.trackingcode }} </td>
+                          <td> <strong style="color: red;">{{ data.status }} </strong></td>
                           {% endfor %}
 
                           {% for send in sender %}
@@ -67,6 +67,7 @@
                           <td> {{ rec.receiver_last_name }}, {{ rec.receiver_first_name }} </td>
                           <td> {{ rec.receiver_city }} , {{ rec.receiver_state }} </td>
                           {% endfor %}
+                          
                         </tr>
                       </tbody>
                     </table>

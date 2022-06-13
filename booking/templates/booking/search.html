@@ -36,20 +36,14 @@
             <div class="container">
               <div class="row">
                 <div class="bg-white mx-auto col-md-8 col-10 p-4">
-                  <h4 class="display-4">Parcel Information</h4>
-                  <p class="mb-2"> Enter tracking code and select an action.</p>
+                  <h4 class="display-4">Update Parcel Status</h4>
+                  <p class="mb-2">Enter tracking code to check database before updating.</p>
                   <form action="{% url 'display' %}" class="form-inline justify-content-center" method="get">
                     <div class="input-group">
-                      <input name= "search" type="text" class="form-control form-control-lg justify-content-center align-items-center" id="inlineFormInputGroup" required="required" placeholder="Search">
+                      <input name= "search" type="text" class="form-control form-control-lg justify-content-center align-items-center" id="inlineFormInputGroup" required="required" placeholder="Tracking Code">
                       <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
                     </div>
-                  </form>
-                  <form action="{% url 'update' %}" class="form-inline justify-content-center" method="get">
-                    <div class="input-group">
-                      <input name= "search" type="text" class="form-control form-control-lg justify-content-center align-items-center" id="inlineFormInputGroup" required="required" placeholder="Update">
-                      <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-bell"></i></button></div>
-                    </div>
-                  </form>
+                  </form>     
                 </div>
               </div>
             </div>

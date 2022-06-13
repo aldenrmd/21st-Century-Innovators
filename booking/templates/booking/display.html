@@ -36,7 +36,7 @@
             <div class="container">
               <div class="row">
                 <div class="bg-white mx-auto col-md-8 col-10 p-4">
-                  <h4 class="display-4">Package Status</h4>
+                  <h4 class="display-4">Package Information</h4>
                 </div>
               </div>
               <div class="row">
@@ -51,6 +51,7 @@
                           <th contenteditable="true" class="table-primary">Sender</th>
                           <th contenteditable="true" class="table-primary">Receiver</th>
                           <th contenteditable="true" class="table-primary">Destination</th>
+                          <th contenteditable="true" class="table-primary">Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -66,6 +67,11 @@
                           {% for rec in receiver %}
                           <td> {{ rec.receiver_last_name }}, {{ rec.receiver_first_name }} </td>
                           <td> {{ rec.receiver_city }} , {{ rec.receiver_state }} </td>
+                          <td> <form action="{% url 'update' %}" class="form-inline justify-content-center" method="get">
+                            <div class="input-group">
+                              <div ><button class="btn btn-primary" type="submit">Update</button></div>
+                            </div>
+                          </form> </td>
                           {% endfor %}
                         </tr>
                       </tbody>
