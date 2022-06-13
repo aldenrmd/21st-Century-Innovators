@@ -13,12 +13,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="theme.css" type="text/css">
         {% if messages %}
-          <ul class="messages">
-          {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><strong>{{message}}</strong></li>
-          {% endfor %}
-          </ul>
-        {% endif %}
+        {% for message in messages %}
+          {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+        {% endfor %}
+      {% endif %}
       </head>
       
     <body>
