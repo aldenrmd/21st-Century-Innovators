@@ -25,6 +25,7 @@ def login(request):
         t = tuple(cursor.fetchall())
         print(t)
         if t == ():
+            messages.info(request, 'INVALID USERNAME OR PASSWORD')
             return render(request,"admin_access/admin.html")
         else: 
             return render(request, "admin_access/dashboard.html")
