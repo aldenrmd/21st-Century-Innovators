@@ -1,3 +1,5 @@
+import re
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Tracker
@@ -13,7 +15,8 @@ def results(request):
     post=[]
     if request.method == 'GET':
         query = request.GET.get('search')
-        post = Tracker.objects.filter(trackingcode=query)
+        if track_code_validator(query):
+            post = Tracker.objects.filter(trackingcode=query)
         return render(request,  'track/results.html', {'query':query,'post':post})
     else:
         return render(request, 'track/results.html',{})
@@ -31,3 +34,11 @@ def track_code_generator():
         return min_code
     serial_number = int(last_entry[4:]) + 1
     return f"DAQS{serial_number:08d}"
+
+def track_code_validator(track_code):
+    if track_code is None:
+        return False
+    format = re.compile("DAQS\d{8,8}\Z")
+    if format.fullmatch(track_code):
+        return True
+    return False
