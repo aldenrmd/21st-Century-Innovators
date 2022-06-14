@@ -36,6 +36,8 @@ def track_code_generator():
     return f"DAQS{serial_number:08d}"
 
 def track_code_validator(track_code):
+    if track_code is None:
+        return False
     format = re.compile("DAQS\d{8,8}\Z")
     if format.fullmatch(track_code):
         return True
