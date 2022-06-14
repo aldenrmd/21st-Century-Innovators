@@ -5,7 +5,7 @@ from .models import Sender, Receiver
 from track.models import Tracker
 from track.views import track_code_generator
 from django.contrib import messages
-
+query=None
 
 
 # Create your views here.
@@ -48,7 +48,6 @@ def booking(request):
 
 def display(request):
     global query
-    query=None
     track=[]
     sender=[]
     receiver=[]
