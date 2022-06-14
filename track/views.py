@@ -27,8 +27,7 @@ def track_code_generator():
     min_code = 'DAQS00000001'
     max_code = 'DAQS99999999'
     last_entry = Tracker.objects.last().trackingcode
-    print(type(last_entry))
-    if last_entry is None or last_entry in max_code:
+    if last_entry is None or max_code in last_entry:
         return min_code
     serial_number = int(last_entry[4:]) + 1
     return f"DAQS{serial_number:08d}"
