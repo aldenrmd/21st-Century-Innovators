@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
 import psycopg2
+from django.contrib import messages
 em = '' 
 pwd = ''
 # Create your views here.
