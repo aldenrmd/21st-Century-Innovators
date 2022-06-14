@@ -3,7 +3,7 @@
 <link
     rel="stylesheet"
     type="text/css"
-    href="{% static 'home/css/theme.css' %}"
+    href="{% static 'track/css/theme.css' %}"
 />
 
 <html>
@@ -32,14 +32,46 @@
               </div>
             </div>
           </nav>
-          <div class="py-5 text-center text-white h-100 align-items-center d-flex" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url('/static/img/daqs 3.jpg');  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
-            <div class="container py-5">
-              <div class="row" >
-                <div class="mx-auto col-lg-8 col-md-10">
-                  <h1 class="display-3 mb-4">TRACKING page</h1>
-                  <p class="lead mb-5">Daqs Freight Forwarder is a logistics firm that specializes in shipping balikbayan boxes from Ireland to the Philippines. Since 2001, Daqs Freight Forwarder have helped overseas Filipino workers (OFWs) in Ireland send goods to their loved ones in the Philippines.</p> <a href="{% url 'track'%}" class="btn btn-lg btn-primary mx-1">Track my package</a> <a class="btn btn-lg mx-1 btn-outline-primary" href="{%url 'pricing'%}">Calculate shipping costs</a>
+          <div class="py-5 text-center" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url('/static/img/daqs 3.jpg'); background-position: right bottom;  background-size: cover; background-repeat: repeat; background-attachment: fixed;" >
+            <div class="container">
+              <div class="row">
+                <div class="bg-white mx-auto col-md-8 col-10 p-4">
+                  <h4 class="display-4">Package Status</h4>
+                  <p class="">Estimated time of arrival varies from 4-6 months.</p>
                 </div>
               </div>
+              <div class="row">
+                <div class="bg-white mx-auto col-md-8 col-10 py-2">
+                  <div class="table-responsive">
+                    <table class="table table-bordered ">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th class="table-secondary">Tracking Code</th>
+                          <th contenteditable="true" class="table-primary">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% if query %}
+                          {% for data in post %}
+                          <tr>
+                            <td> {{ data.trackingcode }}</td>
+                            <td> {{ data.status }}</td>
+                          </tr>
+                          {% empty %}
+                          <tr>
+                            <td> Tracking code not found. </td>
+                            <td> - </td>
+                          </tr>
+                          {% endfor %} 
+                        {% endif %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="bg-white mx-auto col-md-8 col-10 pb-4"><a class="btn btn-primary mx-4" href="{% url 'track'%}">Track package</a><a class="btn btn-outline-primary mx-4" href="{% url 'contactus'%}">Contact Us</a></div>
+              </div
             </div>
           </div>
           <div class="py-3" >
@@ -52,8 +84,8 @@
                   <p class="mb-0"> info@daqstransport.com </p>
                 </div>
                 <div class="col-md-4 p-3">
-                  <h5> <b>Daqs Freight Forwarder</b></h5>
-                  <p class="mb-0"> Daqs Freight Forwarder is a logistics firm that specializes in shipping balikbayan boxes from Ireland to the Philippines.&nbsp;Since 2001, Daqs Freight Forwarder have helped overseas Filipino workers (OFWs) in Ireland send goods to their loved ones in the Philippines.</p>
+                  <h5> <b>DAQS Freight Forwarder</b></h5>
+                  <p class="mb-0"> DAQS Freight Forwarder is a logistics firm that specializes in shipping balikbayan boxes from Ireland to the Philippines.&nbsp;Since 2001, it has helped overseas Filipino workers (OFWs) in Ireland send goods to their loved ones in the Philippines.</p>
                 </div>
               </div>
               <div class="row">

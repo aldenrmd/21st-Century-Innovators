@@ -12,7 +12,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="theme.css" type="text/css">
-    </head>
+        {% if messages %}
+        {% for message in messages %}
+          {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+        {% endfor %}
+      {% endif %}
+      </head>
       
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
@@ -35,6 +40,9 @@
           <div class="pt-3 pb-0">
             <div class="container">
               <div class="row">
+                <div class="col-md-12"><a class="btn btn-primary" href="{% url 'dashboard'%}" >Return to Dashboard</a></div>
+              </div>
+              <div class="row">
                 <div class="col-md-8 p-2">
                   <h1>Book a package</h1>
                   <p>Please enter customer details.</p>
@@ -43,7 +51,8 @@
               <div class="row">
                 <div class="col-md-6 p-2">
                   <h3 class="mb-3">Sender Details</h3>
-                  <form>
+                  <form action="{% url 'booking' %}" method="post">
+                    {% csrf_token %}
                     <div class="form-row">
                       <div class="form-group col-md-6"> <input type="text" class="form-control" id="form34" placeholder="First Name" name="sender_first_name" required="required"> </div>
                       <div class="form-group col-md-6"> <input type="text" class="form-control" id="form35" placeholder="Last Name" name="sender_last_name" required="required"> </div>
@@ -62,14 +71,12 @@
                     </div>
                     <div class="form-group"> <input type="email" class="form-control" id="form40" placeholder="Email (Optional)" name="sender_email"> </div>
                     <div class="form-row">
-                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form41" placeholder="Contact Number" name="sender_number" required="required"> </div>
-                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form42" placeholder="Country" name="sender_country" required="required"> </div>
+                      <div class="form-group col-md-6"> <input type="tel" class="form-control" id="form41" placeholder="Contact Number (01xxxxxxx)" name="sender_number" required="required" pattern="[0][1][0-9]{7}"> </div>
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form42" placeholder="Country" name="sender_country" required="required" value="Ireland">  </div>
                     </div>
-                  </form>
                 </div>
                 <div class="col-md-6 p-2">
                   <h3 class="mb-3">Receiver Details</h3>
-                  <form>
                     <div class="form-row">
                       <div class="form-group col-md-6"> <input type="text" class="form-control" id="form43" placeholder="First Name" name="receiver_first_name" required="required"> </div>
                       <div class="form-group col-md-6"> <input type="text" class="form-control" id="form44" placeholder="Last Name" name="receiver_last_name" required="required"> </div>
@@ -88,10 +95,9 @@
                     </div>
                     <div class="form-group"> <input type="email" class="form-control" id="form49" placeholder="Email (Optional)" name="receiver_email"> </div>
                     <div class="form-row">
-                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form50" placeholder="Contact Number" name="receiver_number" required="required"> </div>
-                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form51" placeholder="Country" name="receiver_country" required="required"> </div>
+                      <div class="form-group col-md-6"> <input type="tel" class="form-control" id="form50" placeholder="Contact Number (09xxxxxxxxx)" name="receiver_number" required="required" pattern="[0][9][0-9]{9}"> </div>
+                      <div class="form-group col-md-6"> <input type="text" class="form-control" id="form51" placeholder="Country" name="receiver_country" required="required" value="Philippines">  </div>
                     </div>
-                  </form>
                 </div>
               </div>
             </div>
@@ -100,11 +106,12 @@
             <div class="container">
               <div class="row">
                 <div class="mx-auto col-md-12">
-                  <h1 class="mb-3">Check if details are correct!</h1> <a class="btn btn-outline-primary" href="#">Proceed</a>
+                  <h1 class="mb-3">Check if details are correct!</h1> <button type="submit" class="btn btn-outline-primary"><b>Proceed</b></button>
                 </div>
               </div>
             </div>
           </div>
+          </form>
           <div class="py-3" >
             <div class="container">
               <div class="row">
