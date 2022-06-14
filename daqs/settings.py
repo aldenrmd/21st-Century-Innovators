@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "whitenoise.runserver_nostatic",
     'home',
-    'db',
     'booking',
     'admin_access',
     'track'
