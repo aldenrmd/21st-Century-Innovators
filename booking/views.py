@@ -6,7 +6,7 @@ from track.models import Tracker
 from track.views import track_code_generator
 from django.contrib import messages
 
-
+global query
 
 # Create your views here.
 TEMPLATE_DIRS = (
@@ -47,7 +47,6 @@ def booking(request):
     return render(request, "booking/booking.html")
 
 def display(request):
-    global query
     query=None
     track=[]
     sender=[]
