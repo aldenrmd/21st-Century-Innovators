@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import datetime
 from .models import Sender, Receiver
 from track.models import Tracker
-from track.views import track_code_generator
+from track.views import track_code_generator, track_code_validator
 from django.contrib import messages
 query=None
 
@@ -53,7 +53,7 @@ def display(request):
     receiver=[]
     if request.method == 'GET':
         query = request.GET.get('search')
-        if Tracker.objects.filter(trackingcode=query):
+        if track_code_validator(query) and Tracker.objects.filter(trackingcode=query):
             track=Tracker.objects.filter(trackingcode=query)
             if Sender.objects.filter(trackingcode=query):
                 sender= Sender.objects.filter(trackingcode=query)
