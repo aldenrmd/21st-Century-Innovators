@@ -1,4 +1,3 @@
-import django
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Tracker
@@ -25,9 +24,10 @@ def track(request):
 
 
 def track_code_generator():
-    last_entry = Tracker.objects.last()
-    if last_entry == None:
-        return "DAQS00000001"
-    tracking_code = last_entry.trackingcode
-    serial_number = int(tracking_code[4:]) + 1
-    return "DAQS" + str(("%08d"%serial_number))
+    min_code = 'DAQS00000001'
+    max_code = 'DAQS99999999'
+    last_entry = Tracker.objects.last().trackingcode
+    if last_entry is None or max_code in last_entry:
+        return min_code
+    serial_number = int(last_entry[4:]) + 1
+    return f"DAQS{serial_number:08d}"
