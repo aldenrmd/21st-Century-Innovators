@@ -24,10 +24,10 @@
               </button>
               <div class="collapse navbar-collapse" id="navbar16">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item"> <a class="nav-link" href="{% url 'track'%}">Track</a> </li>
-                  <li class="nav-item"> <a class="nav-link" href="{% url 'pricing'%}">Pricing</a> </li>
-                  <li class="nav-item"> <a class="nav-link" href="{% url 'about'%}">About</a> </li>
-                  <li class="nav-item"> <a class="nav-link" href="{% url 'contactus'%}">Contact Us</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{% url 'track'%}"><b>Track</b></a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{% url 'pricing'%}"><b>Pricing</b></a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{% url 'about'%}"><b>About</b></a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="{% url 'contactus'%}"><b>Contact Us</b></a> </li>
                 </ul> <a class="btn navbar-btn ml-md-2 btn-light text-dark" href ="{% url 'index'%}" >Log out</a>
               </div>
             </div>
@@ -51,14 +51,13 @@
                           <th contenteditable="true" class="table-primary">Sender</th>
                           <th contenteditable="true" class="table-primary">Receiver</th>
                           <th contenteditable="true" class="table-primary">Destination</th>
-                          <th contenteditable="true" class="table-primary">Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           {% for data in track %}
-                          <td> {{ data.trackingcode }}</td>
-                          <td> {{ data.status }}</td>
+                          <td> {{ data.trackingcode }} </td>
+                          <td> <strong style="color: red;">{{ data.status }} </strong></td>
                           {% endfor %}
 
                           {% for send in sender %}
@@ -68,14 +67,7 @@
                           <td> {{ rec.receiver_last_name }}, {{ rec.receiver_first_name }} </td>
                           <td> {{ rec.receiver_city }} , {{ rec.receiver_state }} </td>
                           {% endfor %}
-                          <td> 
-                            <form action="{% url 'update' %}" class="form-inline justify-content-center" method="UP">
-                            <div class="input-group">
-                              <input name= "search" type="text" class="form-control form-control-lg justify-content-center align-items-center" id="inlineFormInputGroup" required="required">
-                              <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
-                            </div>
-                            </form> 
-                          </td>
+                          
                         </tr>
                       </tbody>
                     </table>

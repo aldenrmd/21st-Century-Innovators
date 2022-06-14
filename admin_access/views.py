@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
-import mysql.connector as sql
+import psycopg2
+from django.contrib import messages
 em = '' 
 pwd = ''
 # Create your views here.
@@ -12,7 +13,7 @@ TEMPLATE_DIRS = (
 def login(request):
     global em, pwd
     if request.method == 'POST':  
-        m=sql.connect(host="localhost",user="root",passwd="thegoldenchild",database="daqsDB")
+        m=psycopg2.connect(port="5432",host="daqsdb.postgres.database.azure.com",user="centuryinnovator",password="21st@daqs",database="daqsDB")
         cursor = m.cursor()
         d = request.POST 
         for key,value in d.items():
@@ -25,6 +26,7 @@ def login(request):
         t = tuple(cursor.fetchall())
         print(t)
         if t == ():
+            messages.info(request, 'INVALID USERNAME OR PASSWORD')
             return render(request,"admin_access/admin.html")
         else: 
             return render(request, "admin_access/dashboard.html")

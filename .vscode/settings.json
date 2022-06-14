@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/03af8371-c365-44c2-b19c-944ba0a83b49/microsoft.web/sites/subscriptions/03af8371-c365-44c2-b19c-944ba0a83b49/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/daqsfreightforwarder",
+    "appService.deploySubpath": "."
+}
