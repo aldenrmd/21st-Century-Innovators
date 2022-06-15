@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-fwn3d&$5gx_5qy0z+oesqb-mg@(o1)+c7h@q$7g9(k*m9v(2*t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['daqsfreightforwarder.azurewebsites.net']
+ALLOWED_HOSTS = ['daqsfreightforwarder.azurewebsites.net','127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://daqsfreightforwarder.azurewebsites.net']
 
 # Application definition
